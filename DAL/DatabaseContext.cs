@@ -5,6 +5,10 @@ namespace DAL
 {
     public class DatabaseContext : DbContext
     {
+        public DatabaseContext()
+        {
+            Database.SetInitializer(new DbInitializer());
+        }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }

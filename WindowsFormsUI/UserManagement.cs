@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL;
 
 namespace WindowsFormsUI
 {
-    public partial class Form1 : Form
+    public partial class UserManagement : Form
     {
-        public Form1()
+        public UserManagement()
         {
             InitializeComponent();
+        }
+        UserManager manager = new UserManager();
+        private void UserManagement_Load(object sender, EventArgs e)
+        {
+            dgvKullanicilar.DataSource = manager.GetAll();
         }
     }
 }
