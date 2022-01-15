@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using DAL;
+using System.Data.Entity.Migrations;
 
 namespace BL
 {
@@ -15,5 +16,28 @@ namespace BL
         {
             return context.Users.ToList(); //DatabaseContext teki kullanıcı listesini döndür
         }
+        public int Add(User user)
+        {
+            context.Users.Add(user); // context içindeki users tablosuna parametreyle gelen user ı ekledik
+            return context.SaveChanges(); // ekleme işleminin veritabanına işlenmesi için
+        }
+
+        public User Find(int id)
+        {
+            return context.Users.Find(id);
+        }
+
+        public int Update(User user)
+        {
+            context.Users.AddOrUpdate(user);
+            return context.SaveChanges();
+        }
+
+        public int Delete(User user)
+        {
+            context.Users.Remove(user);
+            return context.SaveChanges();
+        }
+
     }
 }
