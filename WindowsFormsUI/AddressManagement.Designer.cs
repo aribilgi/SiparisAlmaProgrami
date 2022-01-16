@@ -31,21 +31,22 @@ namespace WindowsFormsUI
         {
             this.dgvAdresler = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtOpenAddress = new System.Windows.Forms.TextBox();
-            this.cbCustomers = new System.Windows.Forms.ComboBox();
-            this.btnEkle = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnEkle = new System.Windows.Forms.Button();
+            this.cbCustomers = new System.Windows.Forms.ComboBox();
+            this.txtOpenAddress = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdresler)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAdresler
             // 
+            this.dgvAdresler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAdresler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAdresler.Location = new System.Drawing.Point(12, 12);
             this.dgvAdresler.Name = "dgvAdresler";
@@ -72,64 +73,14 @@ namespace WindowsFormsUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Adres Bilgileri";
             // 
-            // label1
+            // btnSil
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Başlık";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Açık Adres";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Müşteri";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(104, 29);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(121, 22);
-            this.txtTitle.TabIndex = 4;
-            // 
-            // txtOpenAddress
-            // 
-            this.txtOpenAddress.Location = new System.Drawing.Point(104, 57);
-            this.txtOpenAddress.Multiline = true;
-            this.txtOpenAddress.Name = "txtOpenAddress";
-            this.txtOpenAddress.Size = new System.Drawing.Size(121, 51);
-            this.txtOpenAddress.TabIndex = 5;
-            // 
-            // cbCustomers
-            // 
-            this.cbCustomers.FormattingEnabled = true;
-            this.cbCustomers.Location = new System.Drawing.Point(104, 114);
-            this.cbCustomers.Name = "cbCustomers";
-            this.cbCustomers.Size = new System.Drawing.Size(121, 24);
-            this.cbCustomers.TabIndex = 6;
-            // 
-            // btnEkle
-            // 
-            this.btnEkle.Location = new System.Drawing.Point(69, 153);
-            this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(75, 23);
-            this.btnEkle.TabIndex = 7;
-            this.btnEkle.Text = "Ekle";
-            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnSil.Location = new System.Drawing.Point(242, 153);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(75, 23);
+            this.btnSil.TabIndex = 9;
+            this.btnSil.Text = "Sil";
+            this.btnSil.UseVisualStyleBackColor = true;
             // 
             // btnGuncelle
             // 
@@ -140,14 +91,67 @@ namespace WindowsFormsUI
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
             // 
-            // btnSil
+            // btnEkle
             // 
-            this.btnSil.Location = new System.Drawing.Point(242, 153);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(75, 23);
-            this.btnSil.TabIndex = 9;
-            this.btnSil.Text = "Sil";
-            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnEkle.Location = new System.Drawing.Point(69, 153);
+            this.btnEkle.Name = "btnEkle";
+            this.btnEkle.Size = new System.Drawing.Size(75, 23);
+            this.btnEkle.TabIndex = 7;
+            this.btnEkle.Text = "Ekle";
+            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+            // 
+            // cbCustomers
+            // 
+            this.cbCustomers.DisplayMember = "Name";
+            this.cbCustomers.FormattingEnabled = true;
+            this.cbCustomers.Location = new System.Drawing.Point(104, 114);
+            this.cbCustomers.Name = "cbCustomers";
+            this.cbCustomers.Size = new System.Drawing.Size(121, 24);
+            this.cbCustomers.TabIndex = 6;
+            this.cbCustomers.ValueMember = "Id";
+            // 
+            // txtOpenAddress
+            // 
+            this.txtOpenAddress.Location = new System.Drawing.Point(104, 57);
+            this.txtOpenAddress.Multiline = true;
+            this.txtOpenAddress.Name = "txtOpenAddress";
+            this.txtOpenAddress.Size = new System.Drawing.Size(121, 51);
+            this.txtOpenAddress.TabIndex = 5;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(104, 29);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(121, 22);
+            this.txtTitle.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Müşteri";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 17);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Açık Adres";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Başlık";
             // 
             // AddressManagement
             // 
@@ -157,7 +161,9 @@ namespace WindowsFormsUI
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvAdresler);
             this.Name = "AddressManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adres Yönetimi";
+            this.Load += new System.EventHandler(this.AddressManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdresler)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

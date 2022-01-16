@@ -58,24 +58,28 @@ namespace WindowsFormsUI
             this.adresYönetimiToolStripMenuItem.Name = "adresYönetimiToolStripMenuItem";
             this.adresYönetimiToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.adresYönetimiToolStripMenuItem.Text = "Adres Yönetimi";
+            this.adresYönetimiToolStripMenuItem.Click += new System.EventHandler(this.adresYönetimiToolStripMenuItem_Click);
             // 
             // kategoriYönetimiToolStripMenuItem
             // 
             this.kategoriYönetimiToolStripMenuItem.Name = "kategoriYönetimiToolStripMenuItem";
             this.kategoriYönetimiToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.kategoriYönetimiToolStripMenuItem.Text = "Kategori Yönetimi";
+            this.kategoriYönetimiToolStripMenuItem.Click += new System.EventHandler(this.kategoriYönetimiToolStripMenuItem_Click);
             // 
             // müşteriYönetimiToolStripMenuItem
             // 
             this.müşteriYönetimiToolStripMenuItem.Name = "müşteriYönetimiToolStripMenuItem";
             this.müşteriYönetimiToolStripMenuItem.Size = new System.Drawing.Size(135, 24);
             this.müşteriYönetimiToolStripMenuItem.Text = "Müşteri Yönetimi";
+            this.müşteriYönetimiToolStripMenuItem.Click += new System.EventHandler(this.müşteriYönetimiToolStripMenuItem_Click);
             // 
             // ürünYönetimiToolStripMenuItem
             // 
             this.ürünYönetimiToolStripMenuItem.Name = "ürünYönetimiToolStripMenuItem";
             this.ürünYönetimiToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.ürünYönetimiToolStripMenuItem.Text = "Ürün Yönetimi";
+            this.ürünYönetimiToolStripMenuItem.Click += new System.EventHandler(this.ürünYönetimiToolStripMenuItem_Click);
             // 
             // kullanıcıYönetimiToolStripMenuItem
             // 
@@ -94,6 +98,7 @@ namespace WindowsFormsUI
             this.Name = "AnaEkran";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnaEkran";
+            this.Load += new System.EventHandler(this.AnaEkran_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
