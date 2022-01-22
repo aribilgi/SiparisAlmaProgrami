@@ -31,6 +31,7 @@ namespace WindowsFormsUI
         {
             this.dgvKategoriler = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbIsActive = new System.Windows.Forms.CheckBox();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnGuncelle = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
@@ -38,13 +39,14 @@ namespace WindowsFormsUI
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbIsActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvKategoriler
             // 
+            this.dgvKategoriler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKategoriler.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvKategoriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKategoriler.Location = new System.Drawing.Point(12, 12);
             this.dgvKategoriler.Name = "dgvKategoriler";
@@ -52,6 +54,7 @@ namespace WindowsFormsUI
             this.dgvKategoriler.RowTemplate.Height = 24;
             this.dgvKategoriler.Size = new System.Drawing.Size(776, 215);
             this.dgvKategoriler.TabIndex = 1;
+            this.dgvKategoriler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKategoriler_CellClick);
             // 
             // groupBox1
             // 
@@ -70,23 +73,37 @@ namespace WindowsFormsUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kategori Bilgileri";
             // 
+            // cbIsActive
+            // 
+            this.cbIsActive.AutoSize = true;
+            this.cbIsActive.Location = new System.Drawing.Point(115, 111);
+            this.cbIsActive.Name = "cbIsActive";
+            this.cbIsActive.Size = new System.Drawing.Size(57, 21);
+            this.cbIsActive.TabIndex = 10;
+            this.cbIsActive.Text = "Aktif";
+            this.cbIsActive.UseVisualStyleBackColor = true;
+            // 
             // btnSil
             // 
+            this.btnSil.Enabled = false;
             this.btnSil.Location = new System.Drawing.Point(242, 153);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(75, 23);
             this.btnSil.TabIndex = 9;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
+            this.btnGuncelle.Enabled = false;
             this.btnGuncelle.Location = new System.Drawing.Point(150, 153);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(86, 23);
             this.btnGuncelle.TabIndex = 8;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
@@ -96,6 +113,7 @@ namespace WindowsFormsUI
             this.btnEkle.TabIndex = 7;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // txtDescription
             // 
@@ -130,16 +148,6 @@ namespace WindowsFormsUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Kategori Adı";
             // 
-            // cbIsActive
-            // 
-            this.cbIsActive.AutoSize = true;
-            this.cbIsActive.Location = new System.Drawing.Point(115, 111);
-            this.cbIsActive.Name = "cbIsActive";
-            this.cbIsActive.Size = new System.Drawing.Size(57, 21);
-            this.cbIsActive.TabIndex = 10;
-            this.cbIsActive.Text = "Aktif";
-            this.cbIsActive.UseVisualStyleBackColor = true;
-            // 
             // CategoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,7 +156,9 @@ namespace WindowsFormsUI
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvKategoriler);
             this.Name = "CategoryManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kategori Yönetimi";
+            this.Load += new System.EventHandler(this.CategoryManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKategoriler)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

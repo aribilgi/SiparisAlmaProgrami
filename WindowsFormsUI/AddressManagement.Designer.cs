@@ -54,6 +54,7 @@ namespace WindowsFormsUI
             this.dgvAdresler.RowTemplate.Height = 24;
             this.dgvAdresler.Size = new System.Drawing.Size(776, 215);
             this.dgvAdresler.TabIndex = 0;
+            this.dgvAdresler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdresler_CellClick);
             // 
             // groupBox1
             // 
@@ -75,21 +76,25 @@ namespace WindowsFormsUI
             // 
             // btnSil
             // 
+            this.btnSil.Enabled = false;
             this.btnSil.Location = new System.Drawing.Point(242, 153);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(75, 23);
             this.btnSil.TabIndex = 9;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
+            this.btnGuncelle.Enabled = false;
             this.btnGuncelle.Location = new System.Drawing.Point(150, 153);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(86, 23);
             this.btnGuncelle.TabIndex = 8;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 

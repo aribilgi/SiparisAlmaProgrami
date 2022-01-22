@@ -98,6 +98,7 @@ namespace WindowsFormsUI
             this.Name = "AnaEkran";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnaEkran";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AnaEkran_FormClosed);
             this.Load += new System.EventHandler(this.AnaEkran_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

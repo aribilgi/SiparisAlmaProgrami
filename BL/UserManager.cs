@@ -39,5 +39,10 @@ namespace BL
             return context.SaveChanges();
         }
 
+        public User GetUser(string username, string password)
+        {
+            return context.Users.FirstOrDefault(u => u.IsActive == true & u.UserName == username & u.Password == password); //FirstOrDefault metodu veritabanındaki ilk kaydı getirir
+        }
+
     }
 }

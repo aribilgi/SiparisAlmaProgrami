@@ -51,5 +51,10 @@ namespace WindowsFormsUI
             ProductManagement productManagement = new ProductManagement();
             productManagement.ShowDialog();
         }
+
+        private void AnaEkran_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

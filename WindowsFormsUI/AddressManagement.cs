@@ -57,5 +57,57 @@ namespace WindowsFormsUI
             }
             else MessageBox.Show("Adres Giriniz!");
         }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtOpenAddress.Text))
+            {
+                int id = Convert.ToInt32(dgvAdresler.CurrentRow.Cells[0].Value);
+                var sonuc = manager.Update(new Address
+                {
+                    Id = id,
+                    CreateDate = DateTime.Now,
+                    CustomerId = (int)cbCustomers.SelectedValue,
+                    OpenAddress = txtOpenAddress.Text,
+                    Title = txtTitle.Text
+                });
+                if (sonuc > 0)
+                {
+                    Temizle();
+                    Yukle();
+                    MessageBox.Show("Kayıt Başarıyla Güncellendi!");
+                }
+            }
+            else MessageBox.Show("Adres Giriniz!");
+        }
+
+        private void dgvAdresler_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dgvAdresler.CurrentRow.Cells[0].Value);
+            var kayit = manager.Find(id);
+
+            btnSil.Enabled = true;
+            btnGuncelle.Enabled = true;
+
+            txtTitle.Text = kayit.Title;
+            txtOpenAddress.Text = kayit.OpenAddress;
+            cbCustomers.SelectedValue = kayit.CustomerId;
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Silmek İstiyor Musunuz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dgvAdresler.CurrentRow.Cells[0].Value);
+                var kayit = manager.Find(id);
+                var sonuc = manager.Delete(kayit);
+                if (sonuc > 0)
+                {
+                    Temizle();
+                    Yukle();
+                    MessageBox.Show("Kayıt Başarıyla Silindi!");
+                }
+            }
+        }
     }
 }

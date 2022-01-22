@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressManager.cs" />
+    <Compile Include="CategoryManager.cs" />
     <Compile Include="CustomerManager.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="ProductManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="UserManager.cs" />

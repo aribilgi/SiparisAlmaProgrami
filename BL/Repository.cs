@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,9 +40,19 @@ namespace BL
             return _objectSet.Find(id);
         }
 
+        public T Get(Expression<Func<T, bool>> expression)
+        {
+            return _objectSet.FirstOrDefault(expression);
+        }
+
         public List<T> GetAll()
         {
             return _objectSet.ToList();
+        }
+
+        public List<T> GetAll(Expression<Func<T, bool>> expression)
+        {
+            return _objectSet.Where(expression).ToList();
         }
 
         public int SaveChanges()
