@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AnaEkran.master.cs" Inherits="WebFormsUI.AnaEkran" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Adres Yönetimi</a></li>
+            <li><a href="#">Kategori Yönetimi</a></li>
+            <li><a href="#">Müşteri Yönetimi</a></li>
+            <li><a href="#">Ürün Yönetimi</a></li>
+            <li><a href="#">Kullanıcı Yönetimi</a></li>
+        </ul>
+    </header>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
