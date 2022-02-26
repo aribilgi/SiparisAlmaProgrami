@@ -5,15 +5,16 @@
 <html>
 <head runat="server">
     <title></title>
+    <link href="Stil.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <header>
-        <ul>
-            <li><a href="#">Adres Yönetimi</a></li>
+        <ul id="menu">
             <li><a href="#">Kategori Yönetimi</a></li>
-            <li><a href="#">Müşteri Yönetimi</a></li>
+            <li><a href="CustomerManagement.aspx">Müşteri Yönetimi</a></li>
+            <li><a href="AddressManagement.aspx">Adres Yönetimi</a></li>
             <li><a href="#">Ürün Yönetimi</a></li>
             <li><a href="#">Kullanıcı Yönetimi</a></li>
         </ul>
