@@ -72,9 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddressManagement.aspx" />
+    <Content Include="CategoryManagement.aspx" />
     <Content Include="CustomerManagement.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ProductManagement.aspx" />
     <Content Include="Stil.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -93,6 +95,13 @@
     <Compile Include="AnaEkran.Master.designer.cs">
       <DependentUpon>AnaEkran.Master</DependentUpon>
     </Compile>
+    <Compile Include="CategoryManagement.aspx.cs">
+      <DependentUpon>CategoryManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryManagement.aspx.designer.cs">
+      <DependentUpon>CategoryManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerManagement.aspx.cs">
       <DependentUpon>CustomerManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,6 +118,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ProductManagement.aspx.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductManagement.aspx.designer.cs">
+      <DependentUpon>ProductManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
