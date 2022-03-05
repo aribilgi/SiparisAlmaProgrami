@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AnaEkran.Master" AutoEventWireup="true" CodeBehind="ProductManagement.aspx.cs" Inherits="WebFormsUI.ProductManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AnaEkran.Master" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="WebFormsUI.UserManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -9,9 +9,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Kullanıcı Yönetimi</h1>
 
-    <h1>Ürün Yönetimi</h1>
-    <asp:GridView ID="dgvUrunler" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="dgvUrunler_SelectedIndexChanged">
+    <asp:GridView ID="dgvKullanicilar" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="dgvKullanicilar_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -26,43 +26,52 @@
         <SortedAscendingHeaderStyle BackColor="#506C8C" />
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-</asp:GridView>
+    </asp:GridView>
+
     <hr />
+
     <div>
 
         <table class="auto-style1">
             <tr>
-                <td>Ürün Adı</td>
+                <td>İsim</td>
                 <td>
                     <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>Açıklama</td>
+                <td>Soyisim</td>
                 <td>
-                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox ID="txtSurName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtSurName" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>Stok</td>
+                <td>Email</td>
                 <td>
-                    <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtStock" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Geçersiz E Mail!" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
-                <td>Fiyat</td>
+                <td>Telefon</td>
                 <td>
-                    <asp:TextBox ID="txtPrice" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPrice" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td>Kategori</td>
+                <td>Kullanıcı Adı</td>
                 <td>
-                    <asp:DropDownList ID="cbKategoriler" runat="server" DataTextField="Name" DataValueField="Id">
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUserName" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td>Şifre</td>
+                <td>
+                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPassword" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -76,11 +85,10 @@
                 <td>
                     <asp:Button ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click" />
                     <asp:Button ID="btnGuncelle" runat="server" Text="Güncelle" Enabled="False" OnClick="btnGuncelle_Click" />
-                    <asp:Button ID="btnSil" runat="server" Text="Sil" Enabled="False" OnClick="btnSil_Click" />
+                    <asp:Button ID="btnSil" runat="server" Text="Sil" Enabled="False" />
                 </td>
             </tr>
         </table>
 
     </div>
-
 </asp:Content>

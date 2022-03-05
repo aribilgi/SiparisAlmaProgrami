@@ -16,7 +16,7 @@
             <li><a href="CustomerManagement.aspx">Müşteri Yönetimi</a></li>
             <li><a href="AddressManagement.aspx">Adres Yönetimi</a></li>
             <li><a href="ProductManagement.aspx">Ürün Yönetimi</a></li>
-            <li><a href="#">Kullanıcı Yönetimi</a></li>
+            <li><a href="UserManagement.aspx">Kullanıcı Yönetimi</a></li>
         </ul>
     </header>
     <form id="form1" runat="server">
