@@ -43,7 +43,7 @@ namespace WebFormsUI
                     Response.Redirect("UserManagement.aspx");
                 }
             }
-            else Response.Write("<script>alert('Kullanıcı adı ve Şifre boş geçilemez!')<script>");
+            else Response.Write("<script>alert('Kullanıcı adı ve Şifre boş geçilemez!')</script>");
         }
 
         protected void dgvKullanicilar_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +86,22 @@ namespace WebFormsUI
                     Response.Redirect("UserManagement.aspx");
                 }
             }
-            else Response.Write("<script>alert('Kullanıcı adı ve Şifre boş geçilemez!')<script>");
+            else Response.Write("<script>alert('Kullanıcı adı ve Şifre boş geçilemez!')</script>");
+        }
+
+        protected void btnSil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(dgvKullanicilar.SelectedRow.Cells[1].Text);
+                var kayit = manager.Find(id);
+                var sonuc = manager.Delete(kayit);
+                if (sonuc > 0) Response.Redirect("UserManagement.aspx");
+            }
+            catch (Exception hata)
+            {
+                Response.Write("<script>alert('Hata Oluştu!')</script>");
+            }
         }
     }
 }

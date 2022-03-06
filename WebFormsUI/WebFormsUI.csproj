@@ -71,23 +71,32 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddressManagement.aspx" />
-    <Content Include="CategoryManagement.aspx" />
-    <Content Include="CustomerManagement.aspx" />
+    <Content Include="Admin\AddressManagement.aspx" />
+    <Content Include="Admin\CategoryManagement.aspx" />
+    <Content Include="Admin\CustomerManagement.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="ProductManagement.aspx" />
+    <Content Include="Admin\ProductManagement.aspx" />
     <Content Include="Stil.css" />
-    <Content Include="UserManagement.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressManagement.aspx.cs">
+    <Compile Include="Admin\AddressManagement.aspx.cs">
       <DependentUpon>AddressManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddressManagement.aspx.designer.cs">
+    <Compile Include="Admin\AddressManagement.aspx.designer.cs">
       <DependentUpon>AddressManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="AnaEkran.Master.cs">
       <DependentUpon>AnaEkran.Master</DependentUpon>
@@ -96,19 +105,26 @@
     <Compile Include="AnaEkran.Master.designer.cs">
       <DependentUpon>AnaEkran.Master</DependentUpon>
     </Compile>
-    <Compile Include="CategoryManagement.aspx.cs">
+    <Compile Include="Admin\CategoryManagement.aspx.cs">
       <DependentUpon>CategoryManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CategoryManagement.aspx.designer.cs">
+    <Compile Include="Admin\CategoryManagement.aspx.designer.cs">
       <DependentUpon>CategoryManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerManagement.aspx.cs">
+    <Compile Include="Admin\CustomerManagement.aspx.cs">
       <DependentUpon>CustomerManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerManagement.aspx.designer.cs">
+    <Compile Include="Admin\CustomerManagement.aspx.designer.cs">
       <DependentUpon>CustomerManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -120,19 +136,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ProductManagement.aspx.cs">
+    <Compile Include="Admin\ProductManagement.aspx.cs">
       <DependentUpon>ProductManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductManagement.aspx.designer.cs">
+    <Compile Include="Admin\ProductManagement.aspx.designer.cs">
       <DependentUpon>ProductManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserManagement.aspx.cs">
+    <Compile Include="Admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserManagement.aspx.designer.cs">
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -148,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

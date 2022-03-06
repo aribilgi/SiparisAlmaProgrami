@@ -29,7 +29,7 @@ namespace WebFormsUI
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text) & !string.IsNullOrWhiteSpace(txtPrice.Text))
             {
-                var sonuc = manager.Add(new Product
+                var product = new Product
                 {
                     CategoryId = Convert.ToInt32(cbKategoriler.SelectedValue),
                     CreateDate = DateTime.Now,
@@ -38,7 +38,13 @@ namespace WebFormsUI
                     Name = txtName.Text,
                     Price = Convert.ToDecimal(txtPrice.Text.Trim()), // Trim metodu textbox a girilen değerin önündeki ve sonundaki boşlukları kaldırır
                     Stock = Convert.ToInt32(txtStock.Text.Trim())
-                });
+                };                
+                if (fuImage.HasFile)
+                {
+                    fuImage.SaveAs(Server.MapPath("/Images/" + fuImage.FileName));
+                    product.Image = fuImage.FileName;
+                }
+                var sonuc = manager.Add(product);
                 if (sonuc > 0)
                 {
                     Response.Redirect("ProductManagement.aspx");
@@ -68,7 +74,7 @@ namespace WebFormsUI
             if (!string.IsNullOrWhiteSpace(txtName.Text) & !string.IsNullOrWhiteSpace(txtPrice.Text))
             {
                 int id = Convert.ToInt32(dgvUrunler.SelectedRow.Cells[1].Text);
-                var sonuc = manager.Update(new Product
+                var product = new Product
                 {
                     Id = id,
                     CategoryId = Convert.ToInt32(cbKategoriler.SelectedValue),
@@ -78,7 +84,13 @@ namespace WebFormsUI
                     Name = txtName.Text,
                     Price = Convert.ToDecimal(txtPrice.Text.Trim()), // Trim metodu textbox a girilen değerin önündeki ve sonundaki boşlukları kaldırır
                     Stock = Convert.ToInt32(txtStock.Text.Trim())
-                });
+                };
+                if (fuImage.HasFile)
+                {
+                    fuImage.SaveAs(Server.MapPath("/Images/" + fuImage.FileName));
+                    product.Image = fuImage.FileName;
+                }
+                var sonuc = manager.Update(product);
                 if (sonuc > 0)
                 {
                     Response.Redirect("ProductManagement.aspx");

@@ -72,6 +72,12 @@
                 </td>
             </tr>
             <tr>
+                <td>Resim</td>
+                <td>
+                    <asp:FileUpload ID="fuImage" runat="server" />
+                </td>
+            </tr>
+            <tr>
                 <td>&nbsp;</td>
                 <td>
                     <asp:Button ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click" />

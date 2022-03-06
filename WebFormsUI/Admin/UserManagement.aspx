@@ -85,7 +85,7 @@
                 <td>
                     <asp:Button ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click" />
                     <asp:Button ID="btnGuncelle" runat="server" Text="Güncelle" Enabled="False" OnClick="btnGuncelle_Click" />
-                    <asp:Button ID="btnSil" runat="server" Text="Sil" Enabled="False" />
+                    <asp:Button ID="btnSil" runat="server" Text="Sil" Enabled="False" OnClick="btnSil_Click" />
                 </td>
             </tr>
         </table>

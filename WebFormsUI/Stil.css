@@ -1,14 +1,32 @@
-﻿body {
+﻿header {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
-#menu li{
-    display:inline;
-    margin-right: 1rem;
-}
+
+    header li {
+        display: inline;
+        margin-right: 1rem;
+    }
+
 a {
-    color:black;
+    color: black;
     text-decoration: none;
 }
-a:hover {
-    color: red;
-    border-bottom: thin solid red;
+
+    a:hover {
+        color: red;
+        border-bottom: thin solid red;
+    }
+
+#govde {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
+
+    #govde div img {
+        width: 100%;
+    }
