@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using Entities;
 
 namespace DAL
 {
-    public class DbInitializer : DropCreateDatabaseIfModelChanges<DatabaseContext>
+    public class DbInitializer : CreateDatabaseIfNotExists<DatabaseContext>// Eğer veritabanı yoksa oluştur. //DropCreateDatabaseIfModelChanges<DatabaseContext> Bu kod model classlarımız her değiştiğinde veri tabanını silip yeniden oluşturduğu için kullanımdan kaldırdık
     {
         protected override void Seed(DatabaseContext context)
         {

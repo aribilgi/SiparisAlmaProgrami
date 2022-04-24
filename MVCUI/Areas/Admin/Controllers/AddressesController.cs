@@ -10,11 +10,12 @@ namespace MVCUI.Areas.Admin.Controllers
 {
     public class AddressesController : Controller
     {
-        
+        AddressManager manager = new AddressManager();
+        CustomerManager customer = new CustomerManager();
         // GET: Admin/Addresses
-        public ActionResult Index()
+        public ActionResult Index() // Veri listelem sayfası
         {
-            return View();
+            return View(manager.GetAll()); // View içerisine bu şekilde veritabanından çektiğimiz adres listesini göndermemiz gerekiyor aksi taktirde sayfada model boş olduğu için hata alırız!
         }
 
         // GET: Admin/Addresses/Details/5
@@ -31,7 +32,7 @@ namespace MVCUI.Areas.Admin.Controllers
 
         // POST: Admin/Addresses/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Address address) // Sayfa ön yüzünden bize adres nesnesi gelecek
         {
             try
             {

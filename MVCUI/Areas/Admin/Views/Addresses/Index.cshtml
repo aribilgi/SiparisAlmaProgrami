@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Entities.Address>
+
+@{
+    ViewBag.Title = "Adresler";
+}
+
+<h2>Adresler</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { /* id=item.PrimaryKey */ }) |
+                
+                @Html.ActionLink("Sil", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
