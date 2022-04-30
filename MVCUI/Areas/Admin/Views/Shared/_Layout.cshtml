@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Admin</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -17,12 +17,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                        <a class="nav-link active" aria-current="page" href="/Admin/Categories">Kategori Yönetimi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hakkımızda</a>
+                        <a class="nav-link" href="/Admin/Customers">Müşteri Yönetimi</a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Addresses">Adres Yönetimi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Products">Ürün Yönetimi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin/Users">Kullanıcı Yönetimi</a>
+                    </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">

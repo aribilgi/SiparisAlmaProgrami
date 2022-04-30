@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Entities; // CRUD için gerekli
 using BL; // CRUD için gerekli
@@ -12,6 +9,7 @@ namespace MVCUI.Areas.Admin.Controllers
     {
         AddressManager manager = new AddressManager();
         CustomerManager customer = new CustomerManager();
+        LogManager logManager = new LogManager();
         // GET: Admin/Addresses
         public ActionResult Index() // Veri listelem sayfası
         {
@@ -38,35 +36,46 @@ namespace MVCUI.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                address.CreateDate = DateTime.Now;
+                manager.Add(address);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name");
+                return View(address);
             }
         }
 
         // GET: Admin/Addresses/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var musteri = manager.Find(id.Value);
+            ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name", musteri.Id);
+            return View(musteri);
         }
 
         // POST: Admin/Addresses/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Address address)
         {
             try
             {
                 // TODO: Add update logic here
-
+                manager.Update(address);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception hata) // Oluşan hatayı yakalamak için gerekli kod
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu! Kayıt Güncellenemedi!"); // Oluşan hatayı ekrana bastırıp görebilmek için
+                logManager.Add(new Log { CreateDate = DateTime.Now, Error = hata.ToString(), ErrorInfo = "Customer Create" });
             }
+            ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name");
+            return View(address);
         }
 
         // GET: Admin/Addresses/Delete/5
