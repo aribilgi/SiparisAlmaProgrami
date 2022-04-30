@@ -3,37 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Entities; // CRUD için gerekli
-using BL; // CRUD için gerekli
+using BL;
+using Entities;
 
 namespace MVCUI.Areas.Admin.Controllers
 {
-    public class AddressesController : Controller
+    public class CustomersController : Controller
     {
-        AddressManager manager = new AddressManager();
-        CustomerManager customer = new CustomerManager();
-        // GET: Admin/Addresses
-        public ActionResult Index() // Veri listelem sayfası
+        CustomerManager manager = new CustomerManager();
+        // GET: Admin/Customers
+        public ActionResult Index()
         {
-            return View(manager.GetAll()); // View içerisine bu şekilde veritabanından çektiğimiz adres listesini göndermemiz gerekiyor aksi taktirde sayfada model boş olduğu için hata alırız!
+            return View(manager.GetAll());
         }
 
-        // GET: Admin/Addresses/Details/5
+        // GET: Admin/Customers/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Admin/Addresses/Create
+        // GET: Admin/Customers/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name"); // Ön yüzdeki drop down list e müşteri listesini gönderdik
             return View();
         }
 
-        // POST: Admin/Addresses/Create
+        // POST: Admin/Customers/Create
         [HttpPost]
-        public ActionResult Create(Address address) // Sayfa ön yüzünden bize adres nesnesi gelecek
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
@@ -47,13 +45,13 @@ namespace MVCUI.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Addresses/Edit/5
+        // GET: Admin/Customers/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Admin/Addresses/Edit/5
+        // POST: Admin/Customers/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -69,13 +67,13 @@ namespace MVCUI.Areas.Admin.Controllers
             }
         }
 
-        // GET: Admin/Addresses/Delete/5
+        // GET: Admin/Customers/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Admin/Addresses/Delete/5
+        // POST: Admin/Customers/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
