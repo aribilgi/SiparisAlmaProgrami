@@ -54,9 +54,9 @@ namespace MVCUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             }
-            var musteri = manager.Find(id.Value);
-            ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name", musteri.Id);
-            return View(musteri);
+            var adres = manager.Find(id.Value);
+            ViewBag.CustomerId = new SelectList(customer.GetAll(), "Id", "Name", adres.CustomerId);
+            return View(adres);
         }
 
         // POST: Admin/Addresses/Edit/5
@@ -81,22 +81,23 @@ namespace MVCUI.Areas.Admin.Controllers
         // GET: Admin/Addresses/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(manager.Find(id));
         }
 
         // POST: Admin/Addresses/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Address address)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                address = manager.Find(id);
+                manager.Delete(address);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(address);
             }
         }
     }

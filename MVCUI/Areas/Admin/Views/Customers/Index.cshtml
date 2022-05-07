@@ -7,9 +7,9 @@
 <h2>Müşteriler</h2>
 
 <p>
-    @Html.ActionLink("Yeni Ekle", "Create")
+    @Html.ActionLink("Yeni Ekle", "Create", null, new { @class = "btn btn-outline-primary" })
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -48,8 +48,8 @@
                 @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
-                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
             </td>
         </tr>
     }
