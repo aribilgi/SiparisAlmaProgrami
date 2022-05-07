@@ -6,15 +6,13 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BL
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity, new()
     {
         DatabaseContext context;
-        DbSet<T> _objectSet;
+        protected DbSet<T> _objectSet;
         public Repository()
         {
             if (context == null) // Eğer context null ise

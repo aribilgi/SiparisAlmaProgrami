@@ -13,7 +13,7 @@ namespace MVCUI.Areas.Admin.Controllers
         // GET: Admin/Addresses
         public ActionResult Index() // Veri listelem sayfası
         {
-            return View(manager.GetAll()); // View içerisine bu şekilde veritabanından çektiğimiz adres listesini göndermemiz gerekiyor aksi taktirde sayfada model boş olduğu için hata alırız!
+            return View(manager.GetAddressByCustomers()); // View içerisine bu şekilde veritabanından çektiğimiz adres listesini göndermemiz gerekiyor aksi taktirde sayfada model boş olduğu için hata alırız!
         }
 
         // GET: Admin/Addresses/Details/5
