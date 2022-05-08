@@ -45,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                <img src="~/Images/@Html.DisplayFor(modelItem => item.Image)" height="40" />
             </td>
             <td>
                 @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" }) |

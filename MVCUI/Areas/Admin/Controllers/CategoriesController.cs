@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Entities;
 using BL;
 
 namespace MVCUI.Areas.Admin.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         CategoryManager manager = new CategoryManager();

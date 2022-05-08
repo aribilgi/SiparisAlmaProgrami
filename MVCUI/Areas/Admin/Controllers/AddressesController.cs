@@ -5,6 +5,7 @@ using BL; // CRUD için gerekli
 
 namespace MVCUI.Areas.Admin.Controllers
 {
+    [Authorize] // Bu attribute admindeki AddressesController a gelecek isteklerde login kontrolü yapar
     public class AddressesController : Controller
     {
         AddressManager manager = new AddressManager();
