@@ -17,7 +17,8 @@ namespace MVCUI.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { controler="Home", action = "Index", id = UrlParameter.Optional }
+                new { controler="Home", action = "Index", id = UrlParameter.Optional },
+                new[] { "MVCUI.Areas.Admin.Controllers" } // ön yüz ve admindeki controller çakışmalarını engellemek için
             );
         }
     }

@@ -1,12 +1,10 @@
 ﻿@model IEnumerable<Entities.Product>
 
 @{
-    ViewBag.Title = "Anasayfa";
+    ViewBag.Title = ViewBag.KategoriAdi;
 }
 
-<div class="jumbotron text-center">
-    <h1>Ürünlerimiz</h1>
-</div>
+<h2>@ViewBag.KategoriAdi</h2>
 
 <div class="album py-5 bg-light">
     <div class="container">
@@ -29,6 +27,7 @@
                     </div>
                 </div>
             }
+
 
         </div>
     </div>

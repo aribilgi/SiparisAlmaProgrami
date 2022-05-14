@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BL;
 
 namespace MVCUI.Controllers
 {
     public class HomeController : Controller
     {
+        ProductManager manager = new ProductManager();
         CategoryManager categoryManager = new CategoryManager();
         public ActionResult Index()
         {
-            return View();
+            return View(manager.GetAll());
         }
 
         public ActionResult About()

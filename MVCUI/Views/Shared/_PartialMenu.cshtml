@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Entities.Category>
 
-@foreach (var item in Model)
+@foreach (var category in Model)
 {
     <li>
-        <a href="#" class="dropdown-item">@item.Name</a>
+        <a href="/Products/Index/@category.Id" class="dropdown-item">@category.Name</a>
     </li>
 }
