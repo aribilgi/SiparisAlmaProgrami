@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202204300840442_LogTablosuEklendi.designer.cs">
       <DependentUpon>202204300840442_LogTablosuEklendi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205150843464_ContactClassiEklendi.cs" />
+    <Compile Include="Migrations\202205150843464_ContactClassiEklendi.designer.cs">
+      <DependentUpon>202205150843464_ContactClassiEklendi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204300840442_LogTablosuEklendi.resx">
       <DependentUpon>202204300840442_LogTablosuEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205150843464_ContactClassiEklendi.resx">
+      <DependentUpon>202205150843464_ContactClassiEklendi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

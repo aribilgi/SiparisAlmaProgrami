@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using BL;
+using Entities;
 
 namespace MVCUI.Controllers
 {
@@ -7,6 +8,7 @@ namespace MVCUI.Controllers
     {
         ProductManager manager = new ProductManager();
         CategoryManager categoryManager = new CategoryManager();
+        ContactManager contactManager = new ContactManager();
         public ActionResult Index()
         {
             return View(manager.GetAll());
@@ -14,21 +16,51 @@ namespace MVCUI.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Hakkımızda";
 
             return View();
         }
 
+        [Route("iletisim")] // adres çubuğuna site adından sonra iletisim yazınca home/contact sayfası açılsın
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
-
+        [Route("iletisim"), HttpPost]
+        public ActionResult Contact(Contact contact)
+        {
+            if (ModelState.IsValid) // Contact sınıfındaki zorunlu alanları kontrol et
+            {
+                try
+                {
+                    contact.CreateDate = System.DateTime.Now;
+                    var sonuc = contactManager.Add(contact);
+                    if (sonuc > 0)
+                    {
+                        TempData["Message"] = "<div class='alert alert-success'>Teşekkürler.. Mesajınız Bize Ulaştı..</div>";
+                        return Redirect("iletisim");
+                    }
+                }
+                catch (System.Exception)
+                {
+                    ModelState.AddModelError("", "Hata Oluştu! Mesajınız Gönderilemedi!");
+                }
+            }
+            return View(contact);
+        }
         public PartialViewResult _PartialMenu()
         {
             return PartialView(categoryManager.GetAll());
+        }
+
+        [Route("Search")] // Route Adres çubuğunda /Search sayfası çağrıldığında aşağıdaki actionun çalışmasını sağlar
+        public ActionResult Search(string search)
+        {
+            ViewBag.Message = "Kelime " + search;
+
+            var liste = manager.GetAll(p => p.Name.Contains(search)); // liste değişkeni oluştur ve bu listeye getall metodunun 2. kullanımıyla search değişkeninden gelen kelimeyi içeren ürünleri ekle
+
+            return View(liste); // filtrelenmiş ürün listesini sayfaya model olarak gönder
         }
 
     }

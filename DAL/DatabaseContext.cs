@@ -14,12 +14,17 @@ namespace DAL
             // Migrationu bu şekilde aktif ettikten sonra yeni bir değişiklik yaparsak artık sadece add-migration migrationismi komutu ile bu değişiklikler için migration oluşturabiliriz enable-migration sadece ilk seferinde gerekli!
             // son olarak classlardaki bu değişikliği veritabanına yansıtmak için update-database komutunu yazıp enter diyerek çalıştırmalıyız.
             // Eğer bir hata çıkarsa ekranda yazacaktır çıkmazsa done PM şeklinde komut satırı gelecektir.
+            // Eğer proje classlarında sonradan bir değişiklik yaparasak
+            // Her yeni ekleme veya değişiklikte yeniden Package manager console ekranını açıp DAL projesini seçip add-migration yapilanDegisiklikİsmi komutunu yazıp enter ile yeni bir migration eklemeliyiz
+            // Migration başarıyla eklendikten sonra yeniden update-database komutu ile veritabanını güncellemeliyiz!
         }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Log> Logs { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

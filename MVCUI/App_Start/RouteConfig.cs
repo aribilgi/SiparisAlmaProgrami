@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace MVCUI
@@ -12,6 +8,8 @@ namespace MVCUI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapMvcAttributeRoutes(); // Controller larda Route attribute u kullanabilmek için bu kodu buraya eklememiz gerekiyor!
 
             routes.MapRoute(
                 name: "Default",

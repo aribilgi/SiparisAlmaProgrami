@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Arama Sonuçları";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@ViewBag.Message
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <a href="/Products/Detail/@item.Id">
+                            <img src="~/Images/@item.Image" class="bd-placeholder-img card-img-top" width="100%" />
+
+                            <div class="card-body">
+                                <p class="card-text">
+                                    @item.Name
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
