@@ -31,17 +31,22 @@ namespace MVCUI.Areas.Admin.Controllers
 
         // POST: Admin/Sliders/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Slider slider, HttpPostedFileBase Image)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                if (Image != null) // Resim seçilmişse
+                {
+                    Image.SaveAs(Server.MapPath("/Images/" + Image.FileName));
+                    slider.Image = Image.FileName;
+                }
+                manager.Add(slider);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(slider);
             }
         }
 
