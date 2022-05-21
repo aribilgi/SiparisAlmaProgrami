@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using BL;
 using Entities;
+using MVCUI.Models;
 
 namespace MVCUI.Controllers
 {
@@ -9,9 +10,15 @@ namespace MVCUI.Controllers
         ProductManager manager = new ProductManager();
         CategoryManager categoryManager = new CategoryManager();
         ContactManager contactManager = new ContactManager();
+        SliderManager sliderManager = new SliderManager();
         public ActionResult Index()
         {
-            return View(manager.GetAll());
+            var model = new HomePageViewModel
+            {
+                Sliders = sliderManager.GetAll(),
+                Products = manager.GetAll()
+            };
+            return View(model);
         }
 
         public ActionResult About()

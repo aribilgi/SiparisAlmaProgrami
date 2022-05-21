@@ -147,6 +147,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomePageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +172,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1200x630wa.png" />
+    <Content Include="Images\banner-1300-600-px-buz-poset.png" />
+    <Content Include="Images\banner-1300-600-px-komur.png" />
+    <Content Include="Images\banner-1300-600-px-pisirmi-kagidi.png" />
     <Content Include="Images\logo-ikon.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -210,6 +214,7 @@
     <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Delete.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -239,11 +244,12 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Detail.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_PartialSlider.cshtml" />
+    <Content Include="Views\Shared\_PartialProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

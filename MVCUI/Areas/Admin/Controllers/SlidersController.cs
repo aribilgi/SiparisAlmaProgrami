@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using Entities;
 using BL;
 
 namespace MVCUI.Areas.Admin.Controllers
 {
+    [Authorize]
     public class SlidersController : Controller
     {
         SliderManager manager = new SliderManager();
@@ -53,39 +51,54 @@ namespace MVCUI.Areas.Admin.Controllers
         // GET: Admin/Sliders/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(manager.Find(id));
         }
 
         // POST: Admin/Sliders/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Slider slider, HttpPostedFileBase Image)
         {
-            try
+            if (ModelState.IsValid)
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                try
+                {
+                    if (Image != null) // Resim seçilmişse
+                    {
+                        Image.SaveAs(Server.MapPath("/Images/" + Image.FileName));
+                        slider.Image = Image.FileName;
+                    }
+                    manager.Update(slider);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    ModelState.AddModelError("","Hata Oluştu!");
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(slider);
         }
 
         // GET: Admin/Sliders/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var slide = manager.Find(id);
+            if (slide == null)
+            {
+                return HttpNotFound();
+            }
+            return View(slide);
         }
 
         // POST: Admin/Sliders/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Slider slider)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                var slide = manager.Find(id);
+                manager.Delete(slide);
                 return RedirectToAction("Index");
             }
             catch
