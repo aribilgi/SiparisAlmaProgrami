@@ -18,13 +18,13 @@ namespace DAL
             // Her yeni ekleme veya değişiklikte yeniden Package manager console ekranını açıp DAL projesini seçip add-migration yapilanDegisiklikİsmi komutunu yazıp enter ile yeni bir migration eklemeliyiz
             // Migration başarıyla eklendikten sonra yeniden update-database komutu ile veritabanını güncellemeliyiz!
         }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Log> Logs { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Slider> Sliders { get; set; }
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Slider> Sliders { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
