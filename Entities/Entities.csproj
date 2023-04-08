@@ -46,6 +46,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="DTOs\ProductListDto.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Product.cs" />

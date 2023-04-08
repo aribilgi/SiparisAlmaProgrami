@@ -11,7 +11,7 @@ namespace BL
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity, new()
     {
-        DatabaseContext context;
+        protected DatabaseContext context;
         protected DbSet<T> _objectSet;
         public Repository()
         {

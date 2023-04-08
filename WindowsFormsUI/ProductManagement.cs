@@ -22,7 +22,8 @@ namespace WindowsFormsUI
         CategoryManager category = new CategoryManager();
         void Yukle()
         {
-            dgvUrunler.DataSource = manager.GetAll();
+            //dgvUrunler.DataSource = manager.GetAll();
+            dgvUrunler.DataSource = manager.GetProducts();
             cbKategoriler.DataSource = category.GetAll();
         }
         void Temizle()
